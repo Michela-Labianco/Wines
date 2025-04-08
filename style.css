@@ -1,0 +1,600 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    outline: none;
+    text-decoration: none;
+    list-style-type: none;
+    font-family: "Cormorant Garamond", serif;
+}
+
+html{
+    font-size: 62.5%;
+}
+
+.navbar{
+    position: fixed;
+    z-index: 70;
+    width: 100%;
+    top: 1rem;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+.logo{
+    height: 6rem;
+}
+.menu{
+    display: none; /*visibile only at 900px */
+}
+
+.nav-list{
+    display: flex;
+    justify-content: center;
+}
+.nav-link{
+    font-size: 1.5rem;
+    color: #fff;
+    width: 15rem; /*create spaces between the items*/
+    margin: 0 3rem;
+    text-transform: uppercase;
+    border: 0.1rem solid #fff;
+    text-align: center;
+    padding: 0.2rem 0;
+    letter-spacing: 0.1rem;
+    position: relative;
+    overflow: hidden; /* to hide the outer part of the element */
+}
+.nav-link:before{
+    content: "";
+    position: absolute;
+    width: 150%;
+    height: 5rem;
+    background-color: #981515;
+    left: -20%;
+    transform: rotate(-40deg) translateX(-4rem); 
+    /*And also we need to rotate it and move it slightly horizontally according to the x axis.*/
+    transform-origin: left bottom;
+    opacity: 0.8;
+    transition: left 0.3s;
+}
+.nav-link:hover::before{
+    left: 110%;
+}
+.page-btn{
+    position: fixed;
+    z-index: 70;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: transparent;
+    border: none;
+}
+.left-btn{
+    left: 3rem;
+}
+.left-btn img{
+    transform: rotate(-90deg);
+}
+.right-btn {
+    right: 3rem;
+}
+.right-btn img{
+    transform: rotate(90deg);
+}
+.page-btn img{
+    width: 5rem;
+    opacity: 0.4;
+    cursor: pointer;
+    transition: opacity 0.2s;
+}
+.page-btn img:hover{
+    opacity: 1;
+}
+.progress-wrapper{
+    position: fixed;
+    z-index: 100;
+    bottom: 2rem;
+    left: 3rem;
+}
+.progress{
+    text-align: center;
+    margin-bottom: 1rem;
+}
+.progress h2{
+    font-size: 2rem;
+    font-weight: 300;
+    color: #fff;
+    text-align: center;
+}
+.circle-wrapper{
+    display: flex;
+}
+.circle{
+    width: 1rem;
+    height: 1rem;
+    border: 0.1rem solid #fff;
+    border-radius: 50%;
+    margin: 0 0.3rem;
+    transition: background-color 0.3s;
+}
+
+.circle-1{
+    background-color: #ddd; /*If I reload the page, the first circle will have a background*/
+}
+.wrapper{
+    width: 100vw;
+    height: 100vh;
+    position: relative; /*parent of section*/
+    overflow: hidden; 
+}
+section{ /*to select the section element itself*/
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    left: 0;
+    overflow: hidden;
+    /* because the width of its blurred background is equal to 110%.
+    So in order to hide this part here, we have to use overflow hidden, 
+    and assign it to the section element.*/
+    transition: left 1.5s; /*for a scroll effect smoother*/
+}
+.section-wrapper{
+    width: inherit; /* to inherit it from the section element */
+    height: inherit;
+    transform: scale(1.5);/*to increase the scale of this section wrappers by default */
+    transition: all 2s;
+}
+
+/*to place the pages in order from the first page through the last one with z-index property*/
+.section-1{
+    z-index: 50; /* so the first section is not behind the rest of the sections because of the position absolute*/
+}
+.section-2{
+    z-index: 40;
+}
+.section-3{
+    z-index: 30;
+    background-color: #000;
+}
+.section-4{
+    z-index: 20;
+}
+.section-5{
+    z-index: 10;
+}
+.section-1-wrapper{
+    background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.2)) , url(/images/section-1-bg.jpg) center no-repeat;
+    background-size: cover;
+}
+.section-1-heading-wrapper{
+    position: absolute;
+    top: 60%;
+    left: 50%;
+    bottom: 40%;
+    transform: translate(-50%, 50%);
+}
+.section-1-heading{
+    font-size: 9rem;
+    color: #fff;
+    font-weight: 300;
+    text-transform: capitalize;
+    letter-spacing: 0.2rem;
+    border-bottom: 0.3rem solid #981515;
+    text-align: right;
+    user-select: none;
+}
+
+.section-2-wrapper{
+    background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.8)) , url(/images/section-2-bg.jpg) center no-repeat;
+    background-size: cover;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+}
+.sale-wrapper{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.bag-img{
+    opacity: 0.9;
+    width: 45rem;
+}
+.sale-btn{
+    width: 20rem;
+    height: 5rem;
+    background-color: rgba(216, 214, 214,0.6);
+    font-size: 2rem;
+    font-weight: 300;
+    text-transform: uppercase;
+    letter-spacing: 0.1rem;
+    color: #981515;
+    border: 0.1rem solid #fff;
+    margin-top: 4rem;
+    transition: all 0.2s;
+}
+.sale-btn:hover{
+    background-color: rgba(152, 21, 21,0.5);
+    color: #fff;
+    box-shadow: -0.3rem 0.3rem 0.5rem #fff;
+}
+
+.bottle-img{
+    opacity: 0.9;
+    width: 75rem;
+}
+
+.section-3-wrapper{
+    background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.9)) , url(/images/section-3-bg.jpg) center no-repeat;
+    background-size: cover;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* transition: opacity 1.5s; we get rid of it because it will override the transition that we have just assigned to the section-wrapper */
+}
+.section-3-heading{
+    font-size: 17rem;
+    color: #fff;
+    transform: rotate(-20deg);
+    text-transform: uppercase;
+    text-align: center;
+    text-shadow: 0.5rem 1rem 1.5rem #000;
+    user-select: none;
+}
+.frame-img{
+    width: 95rem;
+    position: absolute;
+    opacity: 0.6;
+}
+.grapes-img{
+    opacity: 0.7;
+    width: 45rem;
+    position: absolute;
+    transition: all 1.5s;
+}
+.grapes-img:hover{
+    opacity: 1;
+    transform: scale(2);
+}
+
+.section-4-wrapper{
+    /*to place the element in the center of the page*/ 
+    display: flex; 
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+/*this was an empty element for the background, we styled it*/
+.section-4-bg{
+    width: 110%; /* increased slightly the width and height of the section
+    so the edges of this section are blurred too*/
+    height: 110%;
+    position: absolute;
+    background: linear-gradient(rgba(0,0,0,0.8), rgba(0,0,0,0.7)), url(/images/section-4-bg.jpg) center no-repeat;
+    background-size: cover;
+    z-index: -1; /*so the rest of the elements are not hidden behind the background.*/
+    filter: blur(0.5rem); /*with this effect the edges weren't blurred*/
+}
+/*in the other sections we assigned the background to the section wrapper.
+But in this case, we're going to use a blur effect.
+And if we do that for the section wrapper, then all the including elements will be blurred.
+So that's why we use an additional element.*/
+
+.section-4-heading{
+    font-size: 10rem;
+    font-weight: 300;
+    color: rgb(152, 21, 21);
+    text-align: center;
+    margin-bottom: 7rem;
+    text-transform: capitalize;
+    user-select: none;
+}
+.wines-img{
+    width: 60rem;
+    border: 0.1rem solid #fff;
+    padding: 1rem; /*to create space inside of the box*/
+    opacity: 0.8;
+}
+
+.section-5-wrapper{
+    background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.5)) , url(/images/section-5-bg.jpg) center no-repeat;
+    background-size: cover;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+}
+.contact-info{
+    width: 20rem;
+    line-height: 1.8;
+    letter-spacing: 0.2rem;
+    font-weight: 300;
+}
+.image-section-5{
+    width: 70rem;
+}
+.info-heading{
+    text-transform: uppercase;
+    font-size: 2rem;
+    color: #fff;
+    letter-spacing: 0.3rem;
+}
+.contact-info:not(.info-heading){
+    font-size: 1.8rem;
+    color: #ddd;
+    font-weight: 700;
+}
+.contact-info:not(a){
+    user-select: none;
+}
+.contact-info a{
+    color: #ddd;
+}
+
+.copyright{
+    position: absolute; /*so it moves in the center and then you can move it at the bottom*/
+    color: #fff;
+    bottom: 2rem;
+    font-size: 1.6rem;
+    letter-spacing: 0.2rem;
+    text-align: center;
+}
+
+
+@media (max-width: 1600px){
+    .bag-img{
+        width: 40rem;
+    }
+    .bottle-img{
+        width: 70rem;
+    }
+    .section-3-heading{
+        font-size: 15rem;
+    }
+    .frame-img{
+        width: 90rem;
+    }
+    .grapes-img{
+        width: 43rem;
+    }
+}
+
+@media (max-width:1300px) {
+    html{
+        font-size: 60%;
+    }
+    .logo{
+        height: 5rem;
+    }
+    .section-1-heading{
+        font-size: 8rem;
+    }
+    .bag-img{
+        width: 35rem;
+    }
+    .bottle-img{
+        width: 65rem;
+    }
+    .sale-btn{
+        width: 18rem;
+        height: 4rem;
+        font-size: 1.8rem;
+    }
+    .section-3-heading{
+        font-size: 13rem;
+    }
+    .image-section-5{
+        width: 60rem;
+    }
+    .contact-info:first-child{
+        margin-left: 4rem;
+    }
+    .info-heading{
+        font-size: 1.8rem;
+    }
+    .contact-info:not(.info-heading){
+        font-size: 1.6rem;
+    }
+}
+@media (max-width:1200px) {
+    .nav-link{
+        margin: 0 1.5rem;
+    }
+    .section-1-heading-wrapper{
+        width: 60%;
+    }
+    .section-1-heading{
+        font-size: 7rem;
+    }
+    .bag-img{
+        width: 25rem;
+    }
+    .bottle-img{
+        width: 55rem;
+    }
+    .sale-btn{
+        width: 16rem;
+        height: 3rem;
+        font-size: 1.6rem;
+    }
+    .section-3-heading{
+        font-size: 10rem;
+    }
+    .frame-img{
+        width: 80rem;
+    }
+    .grapes-img{
+        width: 40rem;
+    }
+    .section-5-wrapper{
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+    }
+    .contact-info{
+        width: 25rem;
+    }
+    .info-heading{
+        font-size: 2.5rem;
+    }
+    .contact-info:not(.info-heading){
+        font-size: 2rem;
+    }
+    .image-section-5{
+        width: 50rem;
+        order: 1;
+        margin-bottom: 4rem;
+    }
+    .contact-info:first-child{
+        margin-left: 0;
+        margin: 5rem 0;
+    }
+}
+@media (max-width:950px) { /*hamburger menu*/
+    .navbar{
+        justify-content: start;
+        padding-left: 3rem;
+        padding-top: 2rem;
+        z-index: 200;
+    }
+    .menu{
+        display: block;
+        width: 4rem;
+        height: 2.5rem;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;        
+        position: absolute;
+        top: 2rem;
+        right: 3rem;
+    }
+    .menu-line{
+        width: 100%;
+        height: 0.4rem;
+        background-color: #981515;
+        transition: transform 0.5s;
+    }
+    .change .menu-line-1{
+        transform: rotate(45deg) translate(2.5rem, 0.9rem);
+    }
+    .change .menu-line-2{
+        transform: rotate(0) translate(1.1rem, 3.3rem);
+    }
+    .change .menu-line-3{
+        transform: rotate(-45deg) translate(0.5rem, 0.9rem);;
+    }
+    .nav-list{
+        position: absolute;
+        top: 8rem;
+        right: -21rem;
+        flex-direction: column;
+        height: 100vh;
+        background-color: #333;
+        justify-content: start;
+        transition: right 0.5s;
+    }
+    .change .nav-list{
+        right: 0;
+    }
+    .nav-link{
+        align-items: center;
+        margin: 5rem 3rem;
+        border-radius: 0.2rem;
+        padding: 0.8rem;
+    }
+    .section-1-heading-wrapper{
+        width: 70%;
+    }
+    .section-2-wrapper{
+        flex-direction: column;
+    }
+    .bag-img{
+        width: 20rem;
+    }
+    .sale-wrapper{
+        order: 1;
+    }
+    .bottle-img{
+        width: 50rem;
+        margin-top: 5rem;
+    }
+    .sale-btn{
+        width: 14rem;
+        height: 2rem;
+        font-size: 1.3rem;
+    }
+    .section-4-heading{
+        font-size: 8rem;
+    }
+    .wines-img{
+        width: 50rem;
+    }
+    .image-section-5{
+        width: 30rem;
+        margin-top: 6rem;
+    }
+    .info-heading{
+        font-size: 2rem;
+    }
+    .contact-info:not(.info-heading){
+        font-size: 1.5rem;
+    }
+    .progress-wrapper{
+        top: 2rem;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+}
+@media (max-width:800px){
+    .left-btn{
+        left: 2rem;
+    }
+    .right-btn{
+        right: 2rem;
+    }
+    .section-1-heading{
+        font-size: 6rem;
+    }
+    .bottle-img{
+        width: 40rem;
+    }
+    .sale-btn{
+        width: 12rem;
+        height: 2rem;
+        font-size: 1rem;
+    }
+    .frame-img{
+        width: 55rem;
+    }
+    .section-3-heading{
+        transform: rotate(0);
+        position: absolute;
+        bottom: 15rem;
+        font-size: 7rem;
+        text-transform: capitalize;
+        opacity: 0.8;
+    }
+    .grapes-img:hover{
+        transform: scale(1.5);
+    }
+    .section-4-heading{
+        font-size: 7rem;
+    }
+    .wines-img{
+        width: 40rem;
+    }
+}
+
+@media (max-width:550px){
+    html{
+        font-size: 40%;
+    }
+    .left-btn{
+        left: 1rem;
+    }
+    .right-btn{
+        right: 1rem;
+    }
+}
